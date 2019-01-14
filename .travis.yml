@@ -12,3 +12,8 @@ node_js:
   - v10
   - v8
 after_script: cat ./coverage/lcov.info | coveralls
+
+env:
+  - TEST_DIR=./packages/generator-custom-element
+
+script: cd $TEST_DIR && npm install && npm test

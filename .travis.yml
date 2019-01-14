@@ -1,9 +1,14 @@
+# Travis CI can clone repositories to a maximum depth of 5 commits
+git:
+  depth: 5
+
+cache:
+  yarn: true
+
 language: node_js
 node_js:
   - '10'
   - v11
   - v10
   - v8
-  - v6
-  - v4
 after_script: cat ./coverage/lcov.info | coveralls

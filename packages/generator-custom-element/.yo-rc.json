@@ -1,0 +1,9 @@
+{
+  "generator-node": {
+    "promptValues": {
+      "authorName": "Dimitar Danailov",
+      "authorEmail": "dimityr.danailov@gmail.com",
+      "authorUrl": "https://github.com/dimitardanailov"
+    }
+  }
+}

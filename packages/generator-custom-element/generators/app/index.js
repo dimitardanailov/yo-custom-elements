@@ -35,6 +35,7 @@ module.exports = class extends Generator {
   writing() {
     const elementName = this.props.elementName;
     const className = transformElementToClassName(elementName);
+    const hasKarmaUnitTest = this.props.hasKarmaUnitTest;
 
     this.fs.copyTpl(
       this.templatePath("_element"),
@@ -44,6 +45,17 @@ module.exports = class extends Generator {
         className: className
       }
     );
+
+    if (hasKarmaUnitTest) {
+      this.fs.copyTpl(
+        this.templatePath("_unittest"),
+        this.destinationPath(`${className}.unittest.js`),
+        {
+          elementName: elementName,
+          className: className
+        }
+      );
+    }
   }
 };
 
@@ -54,6 +66,24 @@ function yoPrompts() {
       name: "elementName",
       message: "What would you like your root element to be called?",
       default: "my-element"
+    },
+    {
+      type: "list",
+      name: "hasKarmaUnitTest",
+      message: "Do you want karma and mocha test suite to be created?",
+      choices: [
+        {
+          name: "No",
+          value: false,
+          checked: true
+        },
+        {
+          name: "Yes",
+          value: true,
+          checked: false
+        }
+      ],
+      default: false
     }
   ];
 }

@@ -1,6 +1,6 @@
 {
   "name": "generator-custom-element",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Generator create a simple custom web element v1. Element has things like ShadowRot, constructor, connected callback.",
   "homepage": "https://github.com/dimitardanailov",
   "author": {

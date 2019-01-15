@@ -1,0 +1,17 @@
+import { expect } from 'chai'
+import { <%= className %> } from './<%= className %>'
+
+describe('<%= elementName %>', () => {
+  // Elements is responsible to hold the testing area of this unit
+  let container
+
+  // Element will hold the target custom web component
+  let scratch
+
+  // This will hold the actual element under tests
+  let element
+
+  it('<%= elementName %> should be define', () => {
+    expect(<%= elementName %> instanceof <%= className %>).to.be.true
+  })
+})

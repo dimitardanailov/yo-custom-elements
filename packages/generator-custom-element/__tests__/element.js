@@ -3,7 +3,7 @@ const path = require("path");
 const assert = require("yeoman-assert");
 const helpers = require("yeoman-test");
 
-describe("generator-custom-element:app", () => {
+describe("generator-custom-element: Creating an element", () => {
   beforeAll(() => {
     return helpers
       .run(path.join(__dirname, "../generators/app"))
@@ -14,8 +14,14 @@ describe("generator-custom-element:app", () => {
     assert.file(["CustomElement.js"]);
   });
 
-  it("assert a file content", () => {
-    assert.fileContent("CustomElement.js", /CustomElement/);
-    assert.fileContent("CustomElement.js", /custom-element/);
+  it("CustomElement and custom-element be part of file content", () => {
+    assert.fileContent(
+      "CustomElement.js",
+      /export class CustomElement extends HTMLElement/
+    );
+    assert.fileContent(
+      "CustomElement.js",
+      /customElements.define\('custom-element', CustomElement/
+    );
   });
 });
